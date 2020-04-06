@@ -3,11 +3,18 @@ import { AppContextConsumer } from "./AppContext";
 
 export const BookInfo = () => (
   <AppContextConsumer>
-    {appContext =>
+    {(appContext) =>
       appContext && (
-        <div>
-          Name: {appContext.name}, Author: {appContext.author}
-        </div>
+        <React.Fragment>
+          <div>
+            Name: {appContext.name}, Author: {appContext.author}
+          </div>
+          <div>
+            <button onClick={() => appContext.setAuthorName("Author changed")}>
+              Change Author
+            </button>
+          </div>
+        </React.Fragment>
       )
     }
   </AppContextConsumer>
